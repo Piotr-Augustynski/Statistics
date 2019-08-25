@@ -6,10 +6,10 @@ class DataLoader
   end
 
   def call
-    data = set_data
+    data = read_data
     file_extension = set_file_extension
-    parsed_data = DataParser.new(data, file_extension).call
-    parsed_data
+    converted_data = DataConverter.new(data, file_extension).call
+    converted_data
   end
 
   private
@@ -19,7 +19,7 @@ class DataLoader
     extension.delete('.').upcase
   end
 
-  def set_data
+  def read_data
     File.read(file)
   end
 end
