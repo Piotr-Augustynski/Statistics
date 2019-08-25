@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+$:.unshift(File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib')))
+
+require 'statistics'
+
+StatisticsApp.new(File.expand_path(File.join(File.dirname(__FILE__), '..', 'reports', ARGV[0]))).run
