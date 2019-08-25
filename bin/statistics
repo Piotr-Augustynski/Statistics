@@ -4,4 +4,8 @@ $:.unshift(File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib')))
 
 require 'statistics'
 
-StatisticsApp.new(File.expand_path(File.join(File.dirname(__FILE__), '..', 'reports', ARGV[0]))).run
+begin
+  StatisticsApp.new(File.expand_path(File.join('reports', ARGV[0]))).run
+rescue Errno::ENOENT
+  puts "Couldn't find file!\nPlease check file name"
+end
