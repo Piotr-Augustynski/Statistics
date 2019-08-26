@@ -1,0 +1,25 @@
+[{
+  "message": "id sapien in",
+  "airline_code": "PID",
+  "number_of_fellow_passenger": 1,
+  "did_receive_compensation": true,
+  "total_compensation_amount": 60
+}, {
+  "message": "consequat lectus in",
+  "airline_code": "PID",
+  "number_of_fellow_passenger": 2,
+  "did_receive_compensation": true,
+  "total_compensation_amount": 62
+}, {
+  "message": "augue vestibulum ante",
+  "airline_code": "PID",
+  "number_of_fellow_passenger": 3,
+  "did_receive_compensation": true,
+  "total_compensation_amount": 88
+}, {
+  "message": "interdum in ante",
+  "airline_code": "PBF",
+  "number_of_fellow_passenger": 4,
+  "did_receive_compensation": false,
+  "total_compensation_amount": 36
+}]
