@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class DataConverter
   attr_reader :extension, :data
-  SUPPORTED_FILE_TYPE = ['JSON', 'CSV']
+  SUPPORTED_FILE_TYPE = %w[JSON CSV].freeze
 
   def initialize(data, extension)
     @data = data

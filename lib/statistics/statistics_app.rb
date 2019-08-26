@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StatisticsApp
   attr_reader :file
 
