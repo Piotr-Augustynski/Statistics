@@ -1,27 +1,31 @@
 # frozen_string_literal: true
 
 class DataLoader
-  attr_reader :file
+  attr_reader :file_path
 
-  def initialize(file)
-    @file = file
+  def initialize(file_path)
+    @file_path = file_path
   end
 
   def call
-    data = read_data
-    file_extension = set_file_extension
-    converted_data = DataConverter.new(data, file_extension).call
-    converted_data
+    data = read_file
+    file_extension = generate_file_extension
+    if DataConverter.supported_file?(file_extension)
+      [data, file_extension]
+    else
+      puts "Unsupported file format!\nTry with CSV or JSON file"
+      exit
+    end
   end
 
   private
 
-  def set_file_extension
-    extension = File.extname(file)
-    extension.delete('.').upcase
+  def generate_file_extension
+    extension = File.extname(file_path)
+    extension.delete('.').downcase
   end
 
-  def read_data
-    File.read(file)
+  def read_file
+    File.read(file_path)
   end
 end

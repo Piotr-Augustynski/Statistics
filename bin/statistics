@@ -6,7 +6,13 @@ $LOAD_PATH.unshift(File.expand_path(File.join(File.dirname(__FILE__), '..', 'lib
 require 'statistics'
 
 begin
-  StatisticsApp.new(File.expand_path(File.join('reports', ARGV[0]))).run
+  result = StatisticsApp.new(File.expand_path(File.join('reports', ARGV[0]))).run
 rescue Errno::ENOENT
   puts "Couldn't find file!\nPlease check file name"
+end
+
+if result
+  result.each do |k, v|
+    puts  "#{k.to_s} => #{v}"
+  end
 end

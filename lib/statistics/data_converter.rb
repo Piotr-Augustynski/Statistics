@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class DataConverter
-  attr_reader :extension, :data
-  SUPPORTED_FILE_TYPE = %w[JSON CSV].freeze
+  attr_reader :data, :extension
+  SUPPORTED_FILE_TYPE = %w[json csv].freeze
 
   def initialize(data, extension)
     @data = data
@@ -10,32 +10,27 @@ class DataConverter
   end
 
   def call
-    if file_supported?(extension)
-      convert(data)
-    else
-      puts "Unsupported file format!\nTry with CSV or JSON file"
-      exit
-    end
+    convert
+  end
+
+  def self.supported_file?(file_extension)
+    SUPPORTED_FILE_TYPE.include?(file_extension)
   end
 
   private
 
-  def convert(data)
+  def convert
     case extension
-    when 'JSON' then json_parser(data)
-    when 'CSV' then csv_parser(data)
+    when 'json' then json_parser
+    when 'csv' then csv_parser
     end
   end
 
-  def file_supported?(type)
-    SUPPORTED_FILE_TYPE.include?(type)
+  def json_parser
+    JSON.parse(data)
   end
 
-  def json_parser(json)
-    JSON.parse(json)
-  end
-
-  def csv_parser(csv)
-    CSV.parse(csv, headers: true).map(&:to_h)
+  def csv_parser
+    CSV.parse(data, headers: :first_row).map(&:to_h)
   end
 end
