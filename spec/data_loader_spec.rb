@@ -14,6 +14,13 @@ describe DataLoader do
     end 
   end
 
+  describe '#count' do
+    it 'return sum of all elements' do
+      expect(json.count).to eq(2)
+      expect(csv.count).to eq(2)
+    end
+  end
+
   describe '#type of second argument' do
     it 'return String' do
       expect(json.first.class).to eq(String)
@@ -26,12 +33,5 @@ describe DataLoader do
       expect(json.last.class).to eq(String)
       expect(csv.last.class).to eq(String)
     end 
-  end
-
-  describe '#count' do
-    it 'return sum of all elements' do
-      expect(json.count).to eq(2)
-      expect(csv.count).to eq(2)
-    end
   end
 end
