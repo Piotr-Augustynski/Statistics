@@ -8,10 +8,9 @@ class DataLoader
   end
 
   def call
-    data = read_file
     file_extension = generate_file_extension
     if DataConverter.supported_file?(file_extension)
-      [data, file_extension]
+      [read_file, file_extension]
     else
       puts "Unsupported file format!\nTry with CSV or JSON file"
       exit
