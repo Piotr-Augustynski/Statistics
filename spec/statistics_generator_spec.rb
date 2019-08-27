@@ -20,7 +20,7 @@ describe StatisticsGenerator do
     it 'always return four elements' do
       expect(json_results.count).to eq(4)
       expect(csv_results.count).to eq(4)
-    end    
+    end
 
     it 'return keys of the symbol type' do
       expect(json_results.keys.first.class).to eq(Symbol)

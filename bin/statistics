@@ -11,8 +11,6 @@ rescue Errno::ENOENT
   puts "Couldn't find file!\nPlease check file name"
 end
 
-if result
-  result.each do |k, v|
-    puts  "#{k.to_s} => #{v}"
-  end
+result&.each do |k, v|
+  puts "#{k} => #{v}"
 end

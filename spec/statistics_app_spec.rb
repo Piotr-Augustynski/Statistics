@@ -6,11 +6,11 @@ describe StatisticsApp do
   describe '#run' do
     csv = StatisticsApp.new('/Users/Wicek/programming/statistics/spec/files/data.csv').run
     json = StatisticsApp.new('/Users/Wicek/programming/statistics/spec/files/data.json').run
-    
+
     it 'return type Hash' do
       expect(csv.class).to eq(Hash)
       expect(json.class).to eq(Hash)
-    end 
+    end
 
     it 'return correct values from csv file' do
       expect(csv[:distribution_of_the_number_of_fellow_passenger_per_user]).to eq(3)

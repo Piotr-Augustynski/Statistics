@@ -3,7 +3,6 @@
 require_relative 'spec_helper'
 
 describe DataLoader do
-
   json = DataLoader.new('/Users/Wicek/programming/statistics/spec/files/data.json').call
   csv = DataLoader.new('/Users/Wicek/programming/statistics/spec/files/data.csv').call
 
@@ -23,6 +22,6 @@ describe DataLoader do
       expect(csv.first.class).to eq(String)
       expect(json.last.class).to eq(String)
       expect(csv.last.class).to eq(String)
-    end 
+    end
   end
 end

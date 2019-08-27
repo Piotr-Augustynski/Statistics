@@ -8,7 +8,7 @@ class StatisticsGenerator
   end
 
   def call
-    { 
+    {
       distribution_of_the_number_of_fellow_passenger_per_user: distribution_of_the_number_of_fellow_passenger_per_user,
       the_average_compensation_per_passenger: the_average_compensation_per_passenger,
       the_most_popular_airline_chosen_by_passengers: the_most_popular_airline_chosen_by_passengers,
