@@ -8,7 +8,7 @@ The program currently presents 4 statistical data but you can easily add further
 
 ## Usage
 
-Get to the directly folder (statistics) in terminal.
+Go directly to the program folder (statistics) in terminal and run command
 
 ```bash
 ruby bin/statistics file_name
