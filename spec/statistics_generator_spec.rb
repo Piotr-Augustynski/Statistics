@@ -2,15 +2,15 @@
 
 require_relative 'spec_helper'
 
-describe StatisticsFormatter do
+describe StatisticsGenerator do
   json_path = '/Users/Wicek/programming/statistics/spec/files/data.json'
   csv_path = '/Users/Wicek/programming/statistics/spec/files/data.csv'
   json_data = DataConverter.new(DataLoader.new(json_path).call.first, 'json').call
   csv_data = DataConverter.new(DataLoader.new(csv_path).call.first, 'csv').call
 
-  describe '#generate_statistics' do
-    json_results = StatisticsFormatter.new(json_data).generate_statistcs
-    csv_results = StatisticsFormatter.new(csv_data).generate_statistcs
+  describe '#call' do
+    json_results = StatisticsGenerator.new(json_data).call
+    csv_results = StatisticsGenerator.new(csv_data).call
 
     it 'return Hash' do
       expect(json_results.class).to eq(Hash)

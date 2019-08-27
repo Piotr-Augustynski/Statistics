@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-class StatisticsFormatter
+class StatisticsGenerator
   attr_reader :content
 
   def initialize(content)
     @content = content
   end
 
-  def generate_statistcs
+  def call
     { 
       distribution_of_the_number_of_fellow_passenger_per_user: distribution_of_the_number_of_fellow_passenger_per_user,
       the_average_compensation_per_passenger: the_average_compensation_per_passenger,

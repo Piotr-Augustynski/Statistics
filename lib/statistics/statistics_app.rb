@@ -10,6 +10,6 @@ class StatisticsApp
   def run
     data, extension = DataLoader.new(file_path).call
     converted_data = DataConverter.new(data, extension).call
-    StatisticsFormatter.new(converted_data).generate_statistcs
+    StatisticsGenerator.new(converted_data).call
   end
 end
