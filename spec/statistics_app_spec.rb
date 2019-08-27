@@ -3,11 +3,11 @@
 require_relative 'spec_helper'
 
 describe StatisticsApp do
-  describe '#call' do
+  describe '#run' do
     csv = StatisticsApp.new('/Users/Wicek/programming/statistics/spec/files/data.csv').run
     json = StatisticsApp.new('/Users/Wicek/programming/statistics/spec/files/data.json').run
     
-    it 'return HASH' do
+    it 'return type Hash' do
       expect(csv.class).to eq(Hash)
       expect(json.class).to eq(Hash)
     end 
