@@ -1,6 +1,6 @@
 # Statistics - training program
 
-Statistics presents statistical data from a file. Currently accepts JSON and CSV files but you can easily add another file format.
+The Statistics program presents statistical data from a file. Currently accepts JSON and CSV files but you can easily add another file format.
 
 The data in the files should look the same.
 
