@@ -18,12 +18,14 @@ describe DataConverter do
   end
 
   describe '#call' do
-    json_data = DataLoader.new(File.join(File.dirname(__FILE__), 'files', 'data.json')).call.first
-    csv_data = DataLoader.new(File.join(File.dirname(__FILE__), 'files', 'data.csv')).call.first
-    json = DataConverter.new(json_data, 'json').call
-    csv = DataConverter.new(csv_data, 'csv').call
-    first_element_of_from_json = json.first
-    last_element_of_from_csv = csv.last
+    let(:json) do 
+      json_data = DataLoader.new(File.join(File.dirname(__FILE__), 'files', 'data.json')).call.first
+      DataConverter.new(json_data, 'json').call
+    end
+    let(:csv) do 
+      csv_data = DataLoader.new(File.join(File.dirname(__FILE__), 'files', 'data.csv')).call.first
+      DataConverter.new(csv_data, 'csv').call
+    end
 
     it 'return type of Array' do
       expect(json.class).to eq(Array)
@@ -38,28 +40,28 @@ describe DataConverter do
     end
 
     it 'return correct keys' do
-      expect(first_element_of_from_json.keys).to include('message')
-      expect(first_element_of_from_json.keys).to include('airline_code')
-      expect(last_element_of_from_csv.keys).to include('number_of_fellow_passenger')
-      expect(last_element_of_from_csv.keys).to include('did_receive_compensation')
-      expect(first_element_of_from_json.keys).to include('total_compensation_amount')
-      expect(last_element_of_from_csv.keys).to include('total_compensation_amount')
+      expect(json.first.keys).to include('message')
+      expect(json.first.keys).to include('airline_code')
+      expect(csv.last.keys).to include('number_of_fellow_passenger')
+      expect(csv.last.keys).to include('did_receive_compensation')
+      expect(json.first.keys).to include('total_compensation_amount')
+      expect(csv.last.keys).to include('total_compensation_amount')
     end
 
     it 'return correct values from json' do
-      expect(first_element_of_from_json['message']).to eq('id sapien in')
-      expect(first_element_of_from_json['airline_code']).to eq('PID')
-      expect(first_element_of_from_json['number_of_fellow_passenger']).to eq(1)
-      expect(first_element_of_from_json['did_receive_compensation']).to eq(true)
-      expect(first_element_of_from_json['total_compensation_amount']).to eq(60)
+      expect(json.first['message']).to eq('id sapien in')
+      expect(json.first['airline_code']).to eq('PID')
+      expect(json.first['number_of_fellow_passenger']).to eq(1)
+      expect(json.first['did_receive_compensation']).to eq(true)
+      expect(json.first['total_compensation_amount']).to eq(60)
     end
 
     it 'return correct values from csv' do
-      expect(last_element_of_from_csv['message']).to eq('eget rutrum at lorem')
-      expect(last_element_of_from_csv['airline_code']).to eq('FTS')
-      expect(last_element_of_from_csv['number_of_fellow_passenger']).to eq('4')
-      expect(last_element_of_from_csv['did_receive_compensation']).to eq('true')
-      expect(last_element_of_from_csv['total_compensation_amount']).to eq('21')
+      expect(csv.last['message']).to eq('eget rutrum at lorem')
+      expect(csv.last['airline_code']).to eq('FTS')
+      expect(csv.last['number_of_fellow_passenger']).to eq('4')
+      expect(csv.last['did_receive_compensation']).to eq('true')
+      expect(csv.last['total_compensation_amount']).to eq('21')
     end
   end
 end

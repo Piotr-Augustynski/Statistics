@@ -4,8 +4,8 @@ require_relative 'spec_helper'
 
 describe StatisticsApp do
   describe '#run' do
-    csv = StatisticsApp.new(File.join(File.dirname(__FILE__), 'files', 'data.csv')).run
-    json = StatisticsApp.new(File.join(File.dirname(__FILE__), 'files', 'data.json')).run
+    let(:csv) { StatisticsApp.new(File.join(File.dirname(__FILE__), 'files', 'data.csv')).run }
+    let(:json) { StatisticsApp.new(File.join(File.dirname(__FILE__), 'files', 'data.json')).run }
 
     it 'return type Hash' do
       expect(csv.class).to eq(Hash)
