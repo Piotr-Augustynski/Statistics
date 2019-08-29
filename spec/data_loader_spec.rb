@@ -3,8 +3,8 @@
 require_relative 'spec_helper'
 
 describe DataLoader do
-  json = DataLoader.new('/Users/Wicek/programming/statistics/spec/files/data.json').call
-  csv = DataLoader.new('/Users/Wicek/programming/statistics/spec/files/data.csv').call
+  json = DataLoader.new(File.join(File.dirname(__FILE__), 'files', 'data.json')).call
+  csv = DataLoader.new(File.join(File.dirname(__FILE__), 'files', 'data.csv')).call
 
   describe '#call' do
     it 'return type of Array' do

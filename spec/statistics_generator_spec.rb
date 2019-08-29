@@ -3,8 +3,8 @@
 require_relative 'spec_helper'
 
 describe StatisticsGenerator do
-  json_path = '/Users/Wicek/programming/statistics/spec/files/data.json'
-  csv_path = '/Users/Wicek/programming/statistics/spec/files/data.csv'
+  json_path = File.join(File.dirname(__FILE__), 'files', 'data.json')
+  csv_path = File.join(File.dirname(__FILE__), 'files', 'data.csv')
   json_data = DataConverter.new(DataLoader.new(json_path).call.first, 'json').call
   csv_data = DataConverter.new(DataLoader.new(csv_path).call.first, 'csv').call
 

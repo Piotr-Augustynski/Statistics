@@ -18,8 +18,8 @@ describe DataConverter do
   end
 
   describe '#call' do
-    json_data = DataLoader.new('/Users/Wicek/programming/statistics/spec/files/data.json').call.first
-    csv_data = DataLoader.new('/Users/Wicek/programming/statistics/spec/files/data.csv').call.first
+    json_data = DataLoader.new(File.join(File.dirname(__FILE__), 'files', 'data.json')).call.first
+    csv_data = DataLoader.new(File.join(File.dirname(__FILE__), 'files', 'data.csv')).call.first
     json = DataConverter.new(json_data, 'json').call
     csv = DataConverter.new(csv_data, 'csv').call
     first_element_of_from_json = json.first
